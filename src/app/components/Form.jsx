@@ -12,7 +12,7 @@ export default function Form({ items, setItems }) {
   };
 
   return (
-    <div className="add-form">
+    <form className="add-form" onSubmit={handleAddItem}>
       <h3>What do you need for your 😍 trip?</h3>
       <select
         value={quantity}
@@ -30,7 +30,7 @@ export default function Form({ items, setItems }) {
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
-      <button onClick={handleAddItem}>Add</button>
-    </div>
+      <button>Add</button>
+    </form>
   );
 }
