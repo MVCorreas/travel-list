@@ -5,7 +5,7 @@ export default function PackingList({items}) {
     <div className="list">
       <ul>
         {items.map((item, index) => (
-          <li key={index} item={item} ><p>{item.description}</p></li>
+          <Item key={index} item={item} />
         ))}
       </ul>
       <div className="actions">
