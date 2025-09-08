@@ -4,16 +4,24 @@ export default function Form({ items, setItems }) {
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState(1);
 
-  const handleAddItem = (e) => {
+  const handleAddItem = (item) => {
+    setItems((prevItems) => [...prevItems, item]);
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
+
     const newItem = { quantity, description, packed: false, id: Date.now() };
-    setItems((prevItems) => {
-      return [...prevItems, newItem];
-    });
+    console.log("new item", newItem);
+
+    handleAddItem(newItem);
+
+    setDescription("");
+    setQuantity(1);
   };
 
   return (
-    <form className="add-form" onSubmit={handleAddItem}>
+    <form className="add-form" onSubmit={handleSubmit}>
       <h3>What do you need for your 😍 trip?</h3>
       <select
         value={quantity}

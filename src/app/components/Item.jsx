@@ -1,7 +1,11 @@
 import { useState } from "react";
 
-export default function Item({ item, onDeleteItem }) {
+export default function Item({ item, onDeleteItem, onPackItem }) {
   const [checked, setChecked] = useState(false);
+
+  // const handlePackItem = () => {
+  //   onPackItem(item.id);
+  // };
   
   return (
     <li>
