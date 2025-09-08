@@ -1,7 +1,8 @@
 import { useState } from "react";
 
-export default function Item({ item }) {
+export default function Item({ item, onDeleteItem }) {
   const [checked, setChecked] = useState(false);
+  
   return (
     <li>
       <input
@@ -11,6 +12,7 @@ export default function Item({ item }) {
       />
       <p>{item.quantity}</p>
       <p>{item.description}</p>
+      <button onClick={() => onDeleteItem(item.id)}>❌</button>
     </li>
   );
 }
