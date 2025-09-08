@@ -1,6 +1,19 @@
-export default function Form() {
+import { useState } from "react";
+export default function Form({ items, setItems }) {
+  const [description, setDescription] = useState("");
+  const [quantity, setQuantity] = useState(1);
+
+  const handleAddItem = (e) => {
+    e.preventDefault();
+    const newItem = { quantity, description, packed: false, id: Date.now() };
+    console.log('new item', newItem);
+    setItems([...items, newItem]);
+    
+    console.log('items', items);
+  };
+
   return (
-    <div className="add-form">
+    <div className="add-form" >
       <h3>What do you need for your 😍 trip?</h3>
       <select>
         {[...Array(10)].map((_, i) => (
@@ -10,7 +23,7 @@ export default function Form() {
         ))}
       </select>
       <input type="text" placeholder="Item..." />
-      <button>Add</button>
+      <button onClick={handleAddItem}>Add</button>
     </div>
   );
 }
