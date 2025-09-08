@@ -1,13 +1,13 @@
 import Item from "./Item";
 
-export default function PackingList() {
+export default function PackingList({items}) {
   return (
     <div className="list">
-      {/* <ul>
+      <ul>
         {items.map((item, index) => (
-          <Item key={index} item={item} />
+          <li key={index} item={item} ><p>{item.description}</p></li>
         ))}
-      </ul> */}
+      </ul>
       <div className="actions">
         <select>
           <option value="SORT BY INPUT ORDER">SORT BY INPUT ORDER</option>
