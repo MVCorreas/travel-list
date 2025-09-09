@@ -34,7 +34,7 @@ export default function Home() {
         onDeleteItem={handleDeleteItem}
         onPackItem={handlePackItem}
       />
-      <Stats />
+      <Stats items={items} />
     </div>
   );
 }
