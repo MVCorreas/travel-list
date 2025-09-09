@@ -1,22 +1,22 @@
 import Item from "./Item";
 
-export default function PackingList({ items, setItems }) {
-  // const handlePackItem = (id) => {
-  //   setItems((prevItems) =>
-  //     prevItems.map((item) =>
-  //       item.id === id ? { ...item, packed: !item.packed } : item
-  //     )
-  //   );
-  // };
-  const handleDeleteItem = (id) => {
-    setItems((prevItems) => prevItems.filter((item) => item.id !== id));
+export default function PackingList({ items, setItems, onDeleteItem }) {
+  const handlePackItem = (id, packed) => {
+    setItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id ? { ...item, packed } : item
+      )
+    );
+    console.log("item packed", id, items);
+    
   };
+
 
   return (
     <div className="list">
       <ul>
         {items.map((item, index) => (
-          <Item key={index} item={item} onDeleteItem={handleDeleteItem} onPackItem={handlePackItem} />
+          <Item key={index} item={item} onDeleteItem={onDeleteItem} onPackItem={handlePackItem} />
         ))}
       </ul>
       <div className="actions">
