@@ -5,9 +5,12 @@ export default function Stats({ items }) {
     totalItems === 0 ? 0 : Math.round((packedItems / totalItems) * 100);
 
   return (
-    <div className="stats">
-      You have {totalItems} items on your list, and you already packed{" "}
-      {packedItems} ({percentage}%)
-    </div>
+    <footer className="stats">
+      <em>
+        {percentage === 100
+          ? "You've got everything! Ready to go ✈️"
+          : ` You have ${totalItems} items on your list, and you already packed ${packedItems} (${percentage}%)`}
+      </em>
+    </footer>
   );
 }
