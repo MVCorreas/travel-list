@@ -1,22 +1,21 @@
 import Item from "./Item";
 
-export default function PackingList({ items, setItems, onDeleteItem }) {
-  const handlePackItem = (id, packed) => {
-    setItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === id ? { ...item, packed } : item
-      )
-    );
-    console.log("item packed", id, items);
-    
-  };
-
-
+export default function PackingList({
+  items,
+  setItems,
+  onDeleteItem,
+  onPackItem,
+}) {
   return (
     <div className="list">
       <ul>
         {items.map((item, index) => (
-          <Item key={index} item={item} onDeleteItem={onDeleteItem} onPackItem={handlePackItem} />
+          <Item
+            key={index}
+            item={item}
+            onDeleteItem={onDeleteItem}
+            onPackItem={onPackItem}
+          />
         ))}
       </ul>
       <div className="actions">

@@ -1,11 +1,10 @@
 export default function Item({ item, onDeleteItem, onPackItem }) {
-
   return (
     <li>
       <input
         type="checkbox"
-        checked={item.packed}
-        onChange={(e) => onPackItem(item.id, e.target.packed)}
+        value={item.packed}
+        onChange={() => onPackItem(item.id)}
       />
       <p>{item.quantity}</p>
       <p style={item.packed ? { textDecoration: "line-through" } : {}}>
