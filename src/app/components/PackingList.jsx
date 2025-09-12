@@ -3,6 +3,7 @@ import Item from "./Item";
 
 export default function PackingList({
   items,
+  setItems,
   onDeleteItem,
   onPackItem,
 }) {
@@ -17,6 +18,10 @@ export default function PackingList({
     }
     return 0;
   });
+
+  const handleClearAll = () => {
+    setItems([]);
+  }
 
   return (
     <div className="list">
@@ -36,7 +41,7 @@ export default function PackingList({
           <option value="description">SORT BY DESCRIPTION</option>
           <option value="packed">SORT BY PACKED STATUS</option>
         </select>
-        <button className="actions">CLEAR LIST</button>
+        <button className="actions" onClick={() => handleClearAll()}>CLEAR LIST</button>
       </div>
     </div>
   );
