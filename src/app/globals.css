@@ -29,7 +29,8 @@ body {
   width: 100%;
   height: 100vh;
   display: grid;
-  grid-template-rows: auto auto 1fr auto;
+  grid-template-rows: auto auto 1fr auto; /* header, add-form, list, footer */
+  min-height: 100vh;
 }
 
 h1 {
@@ -46,7 +47,7 @@ h1 {
 
 .add-form {
   background-color: #e5771f;
-  padding: 2.8rem 0;
+  padding: 1rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,7 +82,8 @@ input {
   background-color: #5a3e2b;
   color: #ffebb3;
   padding: 4rem 0;
-
+  height: 100%;
+  overflow-y: auto;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -135,5 +137,5 @@ input[type="checkbox"] {
   background-color: #76c7ad;
   text-align: center;
   font-weight: 700;
-  padding: 3.2rem 0;
+  padding: 1rem 0;
 }
